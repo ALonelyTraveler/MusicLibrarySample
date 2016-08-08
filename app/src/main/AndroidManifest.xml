@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.bandou.music.sample">
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <application
+            android:allowBackup="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:supportsRtl="true"
+            android:name=".ApplicationContext"
+            android:theme="@style/AppTheme">
+        <activity android:name=".MusicActivity"
+                  android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".MusicAlbumActivity"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".MusicListActivity"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".MusicTypeActivity"
+                  android:screenOrientation="portrait"/>
+
+        <service android:name=".MusicPlayerService"/>
+        <receiver
+                android:name=".MusicPlayerReceiver"
+                android:enabled="true"
+                android:exported="true">
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.intent.action.MEDIA_BUTTON"/>
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>
